@@ -39,7 +39,7 @@ Configise creates an object called the "configuration object". The configuration
 The first phase takes place within the `./config` directory, the absence of which will result in an error being thrown.
 The second phase takes place within the `./config/derived` directory: if no such directory exists, the phase is skipped.
 The third phase takes place within the `./config/verify` directory: if no such directory exists, the phase is skipped.
-In all cases, Configise loads the following files in order (where `${FOO}` denotes "the value of the environment variable 'FOO'"):
+In all cases, Configise loads the following files in order:
 
 * `default.js`
 * `${ENV}.js`
@@ -47,6 +47,8 @@ In all cases, Configise loads the following files in order (where `${FOO}` denot
 * `${USER}.js`
 * `${USER}.${ENV}.js`
 * `${USER}.${NODE_ENV}.js`
+
+(Where `${FOO}` denotes the lower-cased value of the environment variable 'FOO'.)
 
 If any of those files do not exist, they are silently skipped over.
 
