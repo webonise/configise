@@ -124,3 +124,53 @@ exports['fixture loads overrides in order'] = function(test) {
   test.done();
 };
 
+exports['fixture derives unspecified value'] = function(test) {
+  var default_obj = {"foo":true};
+  var derived_obj = {"bar": function(props) { return props.foo; }};
+
+  var config_files = {};
+  config_files[config_path("default")] = default_obj;
+  config_files[derived_path("default")] = derived_obj;
+
+  test.expect(1);
+  test.deepEqual(create_fixture(config_files), {"foo":true, "bar":true});
+  test.done();
+};
+
+exports['fixture does NOT derive specified value'] = function(test) {
+  var default_obj = {"foo":true, "bar":false};
+  var derived_obj = {"bar": function(props) { return props.foo; }};
+
+  var config_files = {};
+  config_files[config_path("default")] = default_obj;
+  config_files[derived_path("default")] = derived_obj;
+
+  test.expect(1);
+  test.deepEqual(create_fixture(config_files), {"foo":true, "bar":false});
+  test.done();
+};
+
+exports['fixture does not explode when verifying a true value'] = function(test) {
+  var default_obj = {"foo":true};
+  var verify_obj = {"foo": function(value) { return value; }};
+
+  var config_files = {};
+  config_files[config_path("default")] = default_obj;
+  config_files[verify_path("default")] = verify_obj;
+
+  test.expect(1);
+  test.deepEqual(create_fixture(config_files), default_obj);
+  test.done();
+};
+
+exports['fixture DOES explode when verifying a false value'] = function(test) {
+  var default_obj = {"foo":true};
+  var verify_obj = {"foo": function(value) { return !value; }};
+
+  var config_files = {};
+  config_files[config_path("default")] = default_obj;
+  config_files[verify_path("default")] = verify_obj;
+
+  test.throws(_.partial(create_fixture, config_files));
+  test.done();
+};
