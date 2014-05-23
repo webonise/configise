@@ -32,9 +32,9 @@ Then execute and enjoy.
 
 Configise creates an object called the "configuration object". The configuration object is process in three stages:
 
-1) loading increasingly specific configuration files on top of each other;
-2) deriving unset values based on increasingly specific derivation files;
-3) verifying values based on increasingly specific verification files.
+1. loading increasingly specific configuration files on top of each other;
+2. deriving unset values based on increasingly specific derivation files;
+3. verifying values based on increasingly specific verification files.
 
 The first phase takes place within the `./config` directory, the absence of which will result in an error being thrown.
 The second phase takes place within the `./config/derived` directory: if no such directory exists, the phase is skipped.
