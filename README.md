@@ -62,7 +62,7 @@ object but not in the configuration object, the key's derivation function is inv
 (It's really a lot simpler than it sounds: check the code.)
 
 The third phase, "verifying", validates values for keys in the configuration object.
-The phase starts by loading the files into a new object, called the "verification object". For verification object is expected to be a mapping of names onto functions.
+The phase starts by loading the files into a new object, called the "verification object". The verification object is expected to be a mapping of names onto functions.
 Each of those functions should take one argument, which is the value of that key in the configuration object, and return a truthy value. For each key in the
 verification object, the key's verification function is invoked. If it returns something that isn't coerced to `true`, an error is thrown.
 
