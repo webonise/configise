@@ -33,7 +33,8 @@
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.5",
-    "proxyquire": "~1.0.0"
+    "proxyquire": "~1.0.0",
+    "npm-release": "~0.0.2"
   },
   "dependencies": {
     "underscore": "1.6.x",
