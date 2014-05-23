@@ -31,6 +31,7 @@ Then execute and enjoy.
 ## Documentation
 
 Configise creates an object called the "configuration object". The configuration object is process in three stages:
+
 1) loading increasingly specific configuration files on top of each other;
 2) deriving unset values based on increasingly specific derivation files;
 3) verifying values based on increasingly specific verification files.
