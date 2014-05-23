@@ -4,7 +4,7 @@
 
 Configise provides configuration support for your Node.js application. You specify environment variables to tell it about where/how it is running,
 and Configise will return you a configuration JavaScript object. This object can be anything you'd like, as long as it is consistent. The library
-provides support for providing default vaules, per-environment properties, per-user properties, per-user-and-environment properties. For the
+provides support for providing default vaules, per-environment properties, per-user properties, and per-user-per-environment properties. For the
 truly adventurous, you can also derive values based on the configuration provided by the user. And, as a bit of a sanity check, you can verify
 your configuration values using arbitrary JavaScript functions.
 
