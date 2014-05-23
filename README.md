@@ -5,10 +5,11 @@
 Configise provides configuration support for your Node.js application. You specify environment variables to tell it about where/how it is running,
 and Configise will return you a configuration JavaScript object. This object can be anything you'd like, as long as it is consistent. The library
 provides support for providing default vaules, per-environment properties, per-user properties, per-user-and-environment properties. For the
-truly adventurous, you can also derive values based on the configuration provided by the user. And, as a bit of a sanity check, you can vier
+truly adventurous, you can also derive values based on the configuration provided by the user. And, as a bit of a sanity check, you can verify
+your configuration values using arbitrary JavaScript functions.
 
 All of this is based on executing JavaScript files using `require`, which gives you the full power of Node.js during your configuration if
-necessary, but also allows you to simply export a JSON object, if that's your bag.
+necessary, but also allows you to simply load a JSON configuration object, if that's your bag.
 
 ## Getting Started
 Install the module with: `npm install configise`
