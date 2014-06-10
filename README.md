@@ -17,7 +17,7 @@ Install the module with: `npm install configise`
 Set up your project to have a `./config` directory. In that folder, create a file named `your_user_name.js` including this line:
 
 ```javascript
-modules.export = { awesome: true };
+module.exports = { awesome: true };
 ```
 
 In the root of your project, add this to your main JavaScript file:
