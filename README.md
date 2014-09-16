@@ -14,7 +14,7 @@ necessary, but also allows you to simply load a JSON configuration object, if th
 ## Getting Started
 Install the module with: `npm install configise`
 
-Set up your project to have a `./config` directory. In that folder, create a file named `your_user_name.js` including this line:
+Set up your project to have a `./config` directory. In that folder, create a file named `default.js` including this line:
 
 ```javascript
 module.exports = { awesome: true };
@@ -22,15 +22,21 @@ module.exports = { awesome: true };
 
 In the root of your project, add this to your main JavaScript file:
 ```javascript
-var configise = require('configise');
-console.log(configise.awesome); // Log your awesome configuration value
+var config = require('configise');
+console.log(config.awesome); // Log your awesome configuration value
 ```
 
 Then execute and enjoy.
 
+## What Just Happened? Can You Talk Me Through It?
+
+[Robert](http://github.com/RobertFischer) talks through Configise (including its implementation) as part of his
+["Real World, Functional JavaScript" talk](http://textiles.online.ncsu.edu/online/Play/36104e9916be401593cdedb6568f53f41d?catalog=f3393fc7-f068-4b21-84cd-23d1cebcd014)
+at NCDevCon 2014.
+
 ## Documentation
 
-Configise creates an object called the "configuration object". The configuration object is process in three stages:
+Configise creates an object called the "configuration object". The configuration object is processed in three stages:
 
 1. loading increasingly specific configuration files on top of each other;
 2. deriving unset values based on increasingly specific derivation files;
