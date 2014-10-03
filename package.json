@@ -1,7 +1,7 @@
 {
   "name": "configise",
   "description": "Sane application configuration support",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/webonise/configise",
   "author": {
     "name": "Webonise Lab",
