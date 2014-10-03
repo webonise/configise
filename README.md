@@ -43,9 +43,13 @@ Configise creates an object called the "configuration object". The configuration
 2. deriving unset values based on increasingly specific derivation files;
 3. verifying values based on increasingly specific verification files.
 
-The first phase takes place within the `./config` directory, the absence of which will result in an error being thrown.
-The second phase takes place within the `./config/derived` directory: if no such directory exists, the phase is skipped.
-The third phase takes place within the `./config/verify` directory: if no such directory exists, the phase is skipped.
+All of these take place in the config directory. By default, the config directory is `./config`. You can override the config directory using the
+`NODE_CONFIG_DIR` environment variable. The value should be resolvable by `require`, which means either a relative path starting with `.` (eg: `./configise`),
+or a module name.
+
+The first phase takes place within the config directory, the absence of which will result in an error being thrown.
+The second phase takes place within the `derived` subdirectory of the config directory: if no such directory exists, the phase is skipped.
+The third phase takes place within the `verify` subdirectory of the config directory: if no such directory exists, the phase is skipped.
 In all cases, Configise loads the following files in order:
 
 * `default.js`
@@ -59,20 +63,20 @@ In all cases, Configise loads the following files in order:
 
 If any of those files do not exist, they are silently skipped over.
 
-In the first phase, "loading", the files from the `./config` directory are loaded into the configuration object,
+In the first phase, "loading", the files from the config directory are loaded into the configuration object,
 and they are expected to export their configuration using `modules.exports=` (see "Getting Started" above).
 The properties of the resulting objects are copied into the configuration object using [Underscore's `extend`](http://underscorejs.org/#extend), with files
 earlier on the list being overwritten by files later on the list.
 
 The second phase, "deriving", generates values for unspecified keys based on the configuration object.
-The phase starts by loading the files from the `./config/derived` directory into a new object,
+The phase starts by loading the files from the `derived` subdirectory into a new object,
 called the "derivation object". The derivation object is expected to be a mapping of names onto functions.
 Each of those functions should take one argument, which will be the configuration object, and return a value for that key. For each key that is in the derivation
 object but not in the configuration object, the key's derivation function is invoked and the configuration object's key is assigned to the resulting value.
 (It's really a lot simpler than it sounds: check the code.)
 
 The third phase, "verifying", validates values for keys in the configuration object.
-The phase starts by loading the files in the `./config/verify` directory into a new object,
+The phase starts by loading the files in the `verify` subdirectory into a new object,
 called the "verification object". The verification object is expected to be a mapping of names onto functions.
 Each of those functions should take one argument, which is the value of that key in the configuration object, and return a truthy value. For each key in the
 verification object, the key's verification function is invoked. If it returns something that isn't coerced to `true`, an error is thrown.
