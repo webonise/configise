@@ -25,6 +25,7 @@ In the root of your project, add this to your main JavaScript file:
 var config = require('configise');
 console.log(config.awesome); // Log your awesome configuration value
 ```
+Use `$NODE_CONFIG_DIR` if your `./config` is not at root folder.
 
 Then execute and enjoy.
 
