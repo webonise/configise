@@ -15,12 +15,10 @@
   "bugs": {
     "url": "http://github.com/webonise/configise/issues"
   },
-  "licenses": [
-    {
-      "type": "Unlicense",
-      "url": "http://raw.githubusercontent.com/webonise/configise/master/LICENSE"
-    }
-  ],
+  "licenses": [{
+    "type": "Unlicense",
+    "url": "http://raw.githubusercontent.com/webonise/configise/master/LICENSE"
+  }],
   "main": "lib/configise",
   "engines": {
     "node": ">= 0.10.0"
@@ -37,8 +35,8 @@
     "npm-release": "~0.0.2"
   },
   "dependencies": {
-    "underscore": "1.6.x",
-    "optional": "0.1.x"
+    "optional": "0.1.x",
+    "underscore": "1.6.x"
   },
   "keywords": [
     "configuration",
